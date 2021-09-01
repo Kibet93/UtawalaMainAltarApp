@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/home-fellowships`,
+    require('./homeFellowshipsCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/home-fellowships/:id`,
+    require('./homeFellowshipsUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/home-fellowships/import`,
+    require('./homeFellowshipsImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/home-fellowships`,
+    require('./homeFellowshipsDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/home-fellowships/autocomplete`,
+    require('./homeFellowshipsAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/home-fellowships`,
+    require('./homeFellowshipsList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/home-fellowships/:id`,
+    require('./homeFellowshipsFind').default,
+  );
+};

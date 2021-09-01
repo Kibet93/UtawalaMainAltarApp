@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/announcement-targets`,
+    require('./announcementTargetsCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/announcement-targets/:id`,
+    require('./announcementTargetsUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/announcement-targets/import`,
+    require('./announcementTargetsImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/announcement-targets`,
+    require('./announcementTargetsDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/announcement-targets/autocomplete`,
+    require('./announcementTargetsAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/announcement-targets`,
+    require('./announcementTargetsList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/announcement-targets/:id`,
+    require('./announcementTargetsFind').default,
+  );
+};

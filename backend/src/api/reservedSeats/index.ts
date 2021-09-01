@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/reserved-seats`,
+    require('./reservedSeatsCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/reserved-seats/:id`,
+    require('./reservedSeatsUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/reserved-seats/import`,
+    require('./reservedSeatsImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/reserved-seats`,
+    require('./reservedSeatsDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/reserved-seats/autocomplete`,
+    require('./reservedSeatsAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/reserved-seats`,
+    require('./reservedSeatsList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/reserved-seats/:id`,
+    require('./reservedSeatsFind').default,
+  );
+};

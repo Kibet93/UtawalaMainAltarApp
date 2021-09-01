@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/service-attendance`,
+    require('./serviceAttendanceCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/service-attendance/:id`,
+    require('./serviceAttendanceUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/service-attendance/import`,
+    require('./serviceAttendanceImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/service-attendance`,
+    require('./serviceAttendanceDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/service-attendance/autocomplete`,
+    require('./serviceAttendanceAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/service-attendance`,
+    require('./serviceAttendanceList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/service-attendance/:id`,
+    require('./serviceAttendanceFind').default,
+  );
+};

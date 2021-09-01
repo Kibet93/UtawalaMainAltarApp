@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/members`,
+    require('./membersCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/members/:id`,
+    require('./membersUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/members/import`,
+    require('./membersImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/members`,
+    require('./membersDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/members/autocomplete`,
+    require('./membersAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/members`,
+    require('./membersList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/members/:id`,
+    require('./membersFind').default,
+  );
+};

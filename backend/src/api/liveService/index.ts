@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/live-service`,
+    require('./liveServiceCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/live-service/:id`,
+    require('./liveServiceUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/live-service/import`,
+    require('./liveServiceImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/live-service`,
+    require('./liveServiceDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/live-service/autocomplete`,
+    require('./liveServiceAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/live-service`,
+    require('./liveServiceList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/live-service/:id`,
+    require('./liveServiceFind').default,
+  );
+};
